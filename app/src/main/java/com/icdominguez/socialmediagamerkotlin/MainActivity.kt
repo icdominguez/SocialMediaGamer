@@ -1,4 +1,4 @@
-package com.icdominguez.socialmediagamer
+package com.icdominguez.socialmediagamerkotlin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
