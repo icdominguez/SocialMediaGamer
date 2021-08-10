@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SocialMediaGamer</string>
+    <string name="register_empty_email">El campo email es requerido</string>
+    <string name="register_mismatches_passwords">Las contraseñas no coinciden</string>
+    <string name="register_empty_phone">El telefono es requerido</string>
+    <string name="register_empty_username">El nombre de usuario es requerido</string>
+
+
 </resources>
