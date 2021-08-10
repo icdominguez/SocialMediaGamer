@@ -1,4 +1,4 @@
-package com.icdominguez.socialmediagamer
+package com.icdominguez.socialmediagamerkotlin
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
