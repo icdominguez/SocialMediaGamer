@@ -4,4 +4,6 @@
     <string name="register_mismatches_passwords">Las contraseñas no coinciden</string>
     <string name="register_empty_phone">El telefono es requerido</string>
     <string name="register_empty_username">El nombre de usuario es requerido</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
