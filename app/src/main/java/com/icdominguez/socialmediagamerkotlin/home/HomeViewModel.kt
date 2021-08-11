@@ -57,7 +57,6 @@ class HomeViewModel : ViewModel() {
                 } else {
                     _tokenStatus.postValue(ResultOf.Failure("Failed with Exception Code ${e.message}", e))
                 }
-
             }
         }
     }

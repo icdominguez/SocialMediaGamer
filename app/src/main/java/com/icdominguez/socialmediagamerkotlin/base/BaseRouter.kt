@@ -1,4 +1,4 @@
-package com.icdominguez.socialmediagamer.base
+package com.icdominguez.socialmediagamerkotlin.base
 
 import android.content.Context
 import android.content.Intent

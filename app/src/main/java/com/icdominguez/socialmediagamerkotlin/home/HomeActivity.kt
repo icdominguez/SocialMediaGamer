@@ -44,11 +44,10 @@ class HomeActivity : AppCompatActivity() {
                 }
             }
         } })
-        viewModel.createToken()
 
         val transaction: FragmentTransaction = supportFragmentManager.beginTransaction().setCustomAnimations(R.anim.slide_in, R.anim.fade_out)
 
-        binding.bottomNavigationView.setNavigationItemSelectedListener {
+        binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when(it.itemId) {
                 R.id.nav_home -> {
                     transaction.replace(R.id.container, HomeFragment())
@@ -69,8 +68,5 @@ class HomeActivity : AppCompatActivity() {
                 else ->  false
             }
         }
-
-
-
     }
 }

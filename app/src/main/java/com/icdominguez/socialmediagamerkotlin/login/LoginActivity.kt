@@ -1,9 +1,10 @@
-package com.icdominguez.socialmediagamer.login
+package com.icdominguez.socialmediagamerkotlin.login
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.icdominguez.socialmediagamer.databinding.ActivityLoginBinding
+import com.icdominguez.socialmediagamerkotlin.databinding.ActivityLoginBinding
+import com.icdominguez.socialmediagamerkotlin.home.HomeRouter
 
 class LoginActivity : AppCompatActivity() {
 
@@ -21,4 +22,15 @@ class LoginActivity : AppCompatActivity() {
             LoginRouter().launch(applicationContext)
         }
     }
+
+    override fun onStart() {
+        super.onStart()
+
+        if(viewModel.checkUser()) {
+            HomeRouter().launch(applicationContext)
+        }
+    }
+
+
 }
+
