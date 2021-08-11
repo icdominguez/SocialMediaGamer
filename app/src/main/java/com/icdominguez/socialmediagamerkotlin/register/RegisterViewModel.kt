@@ -3,20 +3,16 @@ package com.icdominguez.socialmediagamerkotlin.register
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-
-import androidx.lifecycle.*
-
+import androidx.lifecycle.viewModelScope
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.storage.FirebaseStorage
 import com.icdominguez.socialmediagamerkotlin.common.Constants
-import com.icdominguez.socialmediagamerkotlin.model.User
 import com.icdominguez.socialmediagamerkotlin.common.ResultOf
+import com.icdominguez.socialmediagamerkotlin.model.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.lang.Exception
 import java.util.*
 
 class RegisterViewModel : ViewModel() {
