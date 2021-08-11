@@ -1,4 +1,4 @@
-package com.icdominguez.socialmediagamer.common
+package com.icdominguez.socialmediagamerkotlin.common
 
 sealed class ResultOf<out T> {
     data class Success<out R>(val value: R): ResultOf<R>()

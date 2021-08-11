@@ -1,15 +1,15 @@
-package com.icdominguez.socialmediagamer.register
+package com.icdominguez.socialmediagamerkotlin.register
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.icdominguez.socialmediagamer.R
-import com.icdominguez.socialmediagamer.model.User
-import com.icdominguez.socialmediagamer.common.Constants
-import com.icdominguez.socialmediagamer.common.ResultOf
-import com.icdominguez.socialmediagamer.databinding.ActivityRegisterBinding
+import com.icdominguez.socialmediagamerkotlin.model.User
+import com.icdominguez.socialmediagamerkotlin.common.Constants
+import com.icdominguez.socialmediagamerkotlin.common.ResultOf
+import com.icdominguez.socialmediagamerkotlin.R
+import com.icdominguez.socialmediagamerkotlin.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -26,7 +26,7 @@ class RegisterActivity : AppCompatActivity() {
             when(it) {
                 is ResultOf.Success -> {
                     if(it.value == Constants.USER_CREATED) {
-                        Toast.makeText(this, "Registration successfull user created", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Registration successful user created", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(this, "Registration failed with ${it.value}", Toast.LENGTH_SHORT).show()
                     }
@@ -57,17 +57,11 @@ class RegisterActivity : AppCompatActivity() {
                 phone.text.isNullOrEmpty() -> {
                     phone.error = getString(R.string.register_empty_phone)
                 }
-                binding.textUsername.text.isNullOrEmpty() -> {
+                username.text.isNullOrEmpty() -> {
                     binding.textUsername.error = getString(R.string.register_empty_username)
                 }
                 else -> {
-                    val user = User()
-                    user.email = email.text.toString()
-                    user.username = username.text.toString()
-                    user.phone = username.text.toString()
-                    user.password = username.text.toString()
-
-                    viewModel.createUser(user)
+                    viewModel.createUser(email.text.toString(), password1.text.toString(), username.text.toString(), phone.text.toString())
                 }
             }
         }
