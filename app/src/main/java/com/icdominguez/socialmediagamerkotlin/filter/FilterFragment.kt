@@ -11,7 +11,8 @@ import com.icdominguez.socialmediagamerkotlin.databinding.FragmentFilterBinding
 
 class FilterFragment : Fragment() {
 
-    private lateinit var binding: FragmentFilterBinding
+    private lateinit var _binding: FragmentFilterBinding
+    private val binding get() = _binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +22,7 @@ class FilterFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentFilterBinding.inflate(layoutInflater)
+        _binding = FragmentFilterBinding.inflate(inflater, container, false)
         return binding.root
     }
 }

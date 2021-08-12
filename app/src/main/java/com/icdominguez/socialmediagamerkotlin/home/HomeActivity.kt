@@ -28,41 +28,26 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-        viewModel.tokenStatus.observe(this, Observer { result -> result?.let{
-            when(it) {
-                is ResultOf.Success -> {
-                    if(it.value == Constants.TOKEN_CREATED) {
-                        Toast.makeText(this, "Token successfully created", Toast.LENGTH_SHORT).show()
-                    } else {
-                        Toast.makeText(this, "Token failed with ${it.value}", Toast.LENGTH_SHORT).show()
-                    }
-                }
 
-                is ResultOf.Failure -> {
-                    val failedMessage = it.message ?: "Unknown Error"
-                    Toast.makeText(this, "Token failed with $failedMessage", Toast.LENGTH_SHORT).show()
-                }
-            }
-        } })
 
-        val transaction: FragmentTransaction = supportFragmentManager.beginTransaction().setCustomAnimations(R.anim.slide_in, R.anim.fade_out)
+        supportFragmentManager.beginTransaction().replace(R.id.HomeContainer, HomeFragment()).addToBackStack(null).commit()
 
-        binding.bottomNavigationView.setOnNavigationItemSelectedListener {
+        binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId) {
                 R.id.nav_home -> {
-                    transaction.replace(R.id.container, HomeFragment())
+                    supportFragmentManager.beginTransaction().replace(R.id.HomeContainer, HomeFragment()).addToBackStack(null).commit()
                     true
                 }
                 R.id.nav_filter -> {
-                    transaction.replace(R.id.container, FilterFragment())
+                    supportFragmentManager.beginTransaction().replace(R.id.HomeContainer, FilterFragment()).addToBackStack(null).commit()
                     true
                 }
                 R.id.nav_chat -> {
-                    transaction.replace(R.id.container, ChatFragment())
+                    supportFragmentManager.beginTransaction().replace(R.id.HomeContainer, ChatFragment()).addToBackStack(null).commit()
                     true
                 }
                 R.id.nav_profile -> {
-                    transaction.replace(R.id.container, ProfileFragment())
+                    supportFragmentManager.beginTransaction().replace(R.id.HomeContainer, ProfileFragment()).addToBackStack(null).commit()
                     true
                 }
                 else ->  false

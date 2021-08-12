@@ -1,4 +1,6 @@
 package com.icdominguez.socialmediagamerkotlin.profile
 
-class ProfileViewModel {
+import androidx.lifecycle.ViewModel
+
+class ProfileViewModel : ViewModel() {
 }

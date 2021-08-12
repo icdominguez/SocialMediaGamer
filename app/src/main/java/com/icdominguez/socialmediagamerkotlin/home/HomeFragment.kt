@@ -7,33 +7,42 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.icdominguez.socialmediagamerkotlin.R
 import com.icdominguez.socialmediagamerkotlin.databinding.FragmentHomeBinding
+import com.icdominguez.socialmediagamerkotlin.login.LoginRouter
 
 class HomeFragment : Fragment() {
 
-    private lateinit var binding: FragmentHomeBinding
+    private lateinit var _binding: FragmentHomeBinding
+    private val binding get() = _binding
+
     private lateinit var viewModel: HomeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
-
-        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentHomeBinding.inflate(layoutInflater)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.top_app_bar, menu)
-        super.onCreateOptionsMenu(menu, inflater)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+
+        setUp()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-
-
-        return super.onOptionsItemSelected(item)
+    private fun setUp() {
+        binding.topAppBar.setOnMenuItemClickListener { menuItem ->
+            when(menuItem.itemId) {
+                R.id.app_bar_log_out -> {
+                    viewModel.logOut()
+                    LoginRouter().launch(requireActivity())
+                    true
+                } else -> false
+            }
+        }
     }
 }

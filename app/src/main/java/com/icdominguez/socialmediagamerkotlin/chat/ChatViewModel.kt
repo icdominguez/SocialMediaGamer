@@ -1,4 +1,6 @@
 package com.icdominguez.socialmediagamerkotlin.chat
 
-class ChatViewModel {
+import androidx.lifecycle.ViewModel
+
+class ChatViewModel : ViewModel() {
 }

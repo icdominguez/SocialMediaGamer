@@ -10,6 +10,7 @@ import com.icdominguez.socialmediagamerkotlin.common.Constants
 import com.icdominguez.socialmediagamerkotlin.common.ResultOf
 import com.icdominguez.socialmediagamerkotlin.R
 import com.icdominguez.socialmediagamerkotlin.databinding.ActivityRegisterBinding
+import com.shashank.sony.fancytoastlib.FancyToast
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -26,9 +27,9 @@ class RegisterActivity : AppCompatActivity() {
             when(it) {
                 is ResultOf.Success -> {
                     if(it.value == Constants.USER_CREATED) {
-                        Toast.makeText(this, "Registration successful user created", Toast.LENGTH_SHORT).show()
+                        FancyToast.makeText(this, "Registration successful user created", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, false).show()
                     } else {
-                        Toast.makeText(this, "Registration failed with ${it.value}", Toast.LENGTH_SHORT).show()
+                        FancyToast.makeText(this, "Registration failed with ${it.value}", FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show()
                     }
                 }
 
