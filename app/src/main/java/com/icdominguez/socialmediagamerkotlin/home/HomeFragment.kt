@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.icdominguez.socialmediagamerkotlin.R
+import com.icdominguez.socialmediagamerkotlin.adapters.PostAdapter
 import com.icdominguez.socialmediagamerkotlin.databinding.FragmentHomeBinding
 import com.icdominguez.socialmediagamerkotlin.login.LoginRouter
 
@@ -44,5 +45,10 @@ class HomeFragment : Fragment() {
                 } else -> false
             }
         }
+
+        var postAdapter = PostAdapter(viewModel.getAllPosts(), requireContext())
+        binding.recyclerView.adapter = postAdapter
+        postAdapter.notifyDataSetChanged()
+        postAdapter.startListening()
     }
 }
