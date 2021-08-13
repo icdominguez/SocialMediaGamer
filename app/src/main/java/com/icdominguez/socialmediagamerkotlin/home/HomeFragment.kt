@@ -51,4 +51,8 @@ class HomeFragment : Fragment() {
         postAdapter.notifyDataSetChanged()
         postAdapter.startListening()
     }
+
+    val onLike: (postId: String) -> Unit = {
+            postId -> viewModel.likePost(postId)
+    }
 }
