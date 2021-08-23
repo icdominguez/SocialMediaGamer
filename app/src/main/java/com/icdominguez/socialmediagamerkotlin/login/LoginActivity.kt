@@ -81,14 +81,5 @@ class LoginActivity : AppCompatActivity() {
             )
         }
     }
-
-    override fun onStart() {
-        super.onStart()
-
-        if(viewModel.checkUser()) {
-            FancyToast.makeText(this, "Usuario logeado", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, false).show()
-            HomeRouter().launch(applicationContext)
-        }
-    }
 }
 
