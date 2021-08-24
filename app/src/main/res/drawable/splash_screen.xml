@@ -3,9 +3,15 @@
 
     <item android:drawable="@color/colorWhite"/>
 
-    <item>
+    <item
+        android:left="10dp"
+        android:right="10dp"
+        android:top="10dp"
+        android:bottom="10dp"
+        >
+
         <bitmap android:gravity="center"
-            android:src="@drawable/ic_launcher_foreground"/>
+            android:src="@drawable/opticdev"/>
     </item>
 
 </layer-list>
