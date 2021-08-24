@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.icdominguez.socialmediagamerkotlin.R
 import com.icdominguez.socialmediagamerkotlin.common.Constants
 import com.icdominguez.socialmediagamerkotlin.common.ResultOf
 import com.icdominguez.socialmediagamerkotlin.databinding.ActivityLoginBinding
@@ -78,15 +79,6 @@ class LoginActivity : AppCompatActivity() {
                 binding.textEmail.text.toString(),
                 binding.textPassword2.text.toString()
             )
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-
-        if(viewModel.checkUser()) {
-            FancyToast.makeText(this, "Usuario logeado", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, false).show()
-            HomeRouter().launch(applicationContext)
         }
     }
 }
