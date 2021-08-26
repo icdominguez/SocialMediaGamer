@@ -1,4 +1,4 @@
-package com.icdominguez.socialmediagamerkotlin
+package com.icdominguez.socialmediagamer
 
 import org.junit.Test
 
