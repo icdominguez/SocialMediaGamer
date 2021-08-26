@@ -13,7 +13,7 @@ import com.icdominguez.socialmediagamerkotlin.model.Post
 import com.squareup.picasso.Picasso
 import java.util.*
 
-class PostAdapter(options: FirestoreRecyclerOptions<Post>, ctx: Context) : FirestoreRecyclerAdapter<Post, ViewHolder>(options) {
+class PostAdapter(options: FirestoreRecyclerOptions<Post>, ctx: Context, private val onLike: (postId: String) -> Unit) : FirestoreRecyclerAdapter<Post, ViewHolder>(options) {
 
     var context: Context = ctx
 
@@ -47,7 +47,7 @@ class PostAdapter(options: FirestoreRecyclerOptions<Post>, ctx: Context) : Fires
             }
 
             binding.imageViewLike.setOnClickListener{
-
+                onLike.invoke(postId)
             }
         }
     }

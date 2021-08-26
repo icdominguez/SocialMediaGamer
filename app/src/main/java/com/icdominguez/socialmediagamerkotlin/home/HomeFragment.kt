@@ -3,7 +3,6 @@ package com.icdominguez.socialmediagamerkotlin.home
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.icdominguez.socialmediagamerkotlin.R
 import com.icdominguez.socialmediagamerkotlin.adapters.PostAdapter
@@ -46,13 +45,15 @@ class HomeFragment : Fragment() {
             }
         }
 
-        var postAdapter = PostAdapter(viewModel.getAllPosts(), requireContext())
+        //viewModel.getPosts()
+
+        var postAdapter = PostAdapter(viewModel.getAllPosts(), requireContext(), onLike)
         binding.recyclerView.adapter = postAdapter
         postAdapter.notifyDataSetChanged()
         postAdapter.startListening()
     }
 
-    val onLike: (postId: String) -> Unit = {
+    private val onLike: (postId: String) -> Unit = {
             postId -> viewModel.likePost(postId)
     }
 }
