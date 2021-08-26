@@ -10,4 +10,6 @@ data class User (
     var timestamp: Long? = null,
     var lastConnection: Long? = null,
     var online: Boolean = false
+
+
 )

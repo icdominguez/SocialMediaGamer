@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.icdominguez.socialmediagamerkotlin">
 
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".newPost.NewPostActivity"
+            android:exported="true" />
+      <activity
             android:name=".launch.LaunchActivity"
             android:exported="true"
             android:theme="@style/SplashTheme">
@@ -22,7 +28,7 @@
         <activity
             android:name=".login.LoginActivity"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".register.RegisterActivity"
             android:exported="true"
